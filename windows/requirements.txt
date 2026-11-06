@@ -1,0 +1,4 @@
+Pillow==11.3.0
+psutil==7.0.0
+pyinstaller==6.15.0
+mss==10.1.0

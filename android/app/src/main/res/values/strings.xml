@@ -1,0 +1,3 @@
+<resources>
+<string name="access_desc">Permite que o ConectaTudo 1.6 controle a tela por toques, deslizes, voltar e início, apenas enquanto o usuário autorizar temporariamente. A câmera e a tela requerem autorização separada. Desative nas configurações de Acessibilidade a qualquer momento.</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION"/>
+    <application android:label="ConectaTudo 1.6" android:theme="@style/ConectaTheme"
+        android:allowBackup="false" android:usesCleartextTraffic="true" android:supportsRtl="true">
+        <activity android:name="br.app.conectatudo.v1.MainActivity" android:exported="true" android:screenOrientation="unspecified">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="conectatudo16" android:host="connect"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="br.app.conectatudo.v1.QrScannerActivity" android:exported="false" android:screenOrientation="portrait"/>
+        <service android:name="br.app.conectatudo.v1.LanService" android:exported="false"
+            android:foregroundServiceType="dataSync|mediaProjection"/>
+        <service android:name="br.app.conectatudo.v1.RemoteAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true" android:label="ConectaTudo — controle remoto autorizado">
+            <intent-filter><action android:name="android.accessibilityservice.AccessibilityService"/></intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/remote_accessibility"/>
+        </service>
+    </application>
+</manifest>
